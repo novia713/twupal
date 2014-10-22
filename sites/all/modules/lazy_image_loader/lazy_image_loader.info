@@ -1,0 +1,10 @@
+name = Lazy image loader
+description = Load page's images only if they were visible or requested by user
+package = Javascript tools
+core = 6.x
+; Information added by drupal.org packaging script on 2011-04-10
+version = "7.x-1.0-beta1"
+core = "7.x"
+project = "lazy_image_loader"
+datestamp = "1302460617"
+

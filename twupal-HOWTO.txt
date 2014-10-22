@@ -1,0 +1,42 @@
+PROYECTO DRUPAL TWITTER
+
+= ahora mismo pilla tweets de una búsqueda y los pinta tanto en un bloque como en una lista
+
+HOWTO
+=====
+
+ - drush dl drupal
+ - drush site-install --db-url=mysql://root:panda@localhost:/twopal --account-name=leandro --account-pass=XXX
+ - configurar /etc/hosts y httpd.conf
+ - drush dl oauth twitter twitter_search
+ - drush en twitter twitter_signin oauth_common twitter_actions twitter_search views_ui
+ - configurar módulos → http://drewpull.drupalgardens.com/blog/drupal-7-twitter
+ - parchear twitter.lib.php → cd sites/all/modules/twitter → patch < fix_search_tweets-1963524-8.patch
+ - cd sites/all/modules/twitter_search → patch < twitter_search.module.patch
+ - cambiar la función twitter_status_save() en twitter.inc por https://www.drupal.org/node/1910376#comment-8569965
+ 
+ 
+ VIEWS AUTO-REFRESH 
+  - drush en -y views_autorefresh
+  - https://www.drupal.org/project/views_autorefresh
+  - ping.php está funcionando en el raíz
+  
+  
+TWEME
+ - drush en -y tweme
+ 
+ 
+INFINITE SCROLL
+ - con ajax no funciona, hay que instalar este → https://www.drupal.org/files/issues/views_infinite_scroll_1.zip
+ 
+TAL CUAL
+ - lazy_image_loader
+ - back_to_top
+
+METATAG, METATAG_TWITTER_CARDS
+ - hay que dar de alta el dominio del sitio :(
+  
+  
+ADMIN MENU
+ - drush dis toolbar overlay
+ - drush en -y admin_menu admini_menu_toolbar

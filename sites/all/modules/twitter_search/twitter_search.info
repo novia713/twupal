@@ -1,0 +1,11 @@
+name = Twitter search
+description = Adds search functionality to the Twitter module.
+core = 7.x
+dependencies[] = twitter
+
+; Information added by drupal.org packaging script on 2013-10-19
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "twitter_search"
+datestamp = "1382148421"
+

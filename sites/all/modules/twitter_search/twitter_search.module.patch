@@ -1,0 +1,25 @@
+diff --git a/docroot/sites/all/modules/contrib/twitter_search/twitter_search.module b/docroot/sites/all/modules/contrib/twitter_search/twitter_search.module
+index da39d1e..8c51542 100644
+--- a/docroot/sites/all/modules/contrib/twitter_search/twitter_search.module
++++ b/docroot/sites/all/modules/contrib/twitter_search/twitter_search.module
+@@ -99,6 +99,19 @@ function twitter_search_cron() {
+           ))
+           ->condition('search', $search['search'])
+           ->execute();
++
++        // add data into twitter_search_tweet
++        $twitter_search_id = $search['twitter_search_id'];
++        foreach($statuses AS $status) {
++         $twitter_id = $status->id;
++         db_insert('twitter_search_tweet')
++              ->fields(array(
++                'twitter_search_id' => $twitter_search_id,
++                'twitter_id' => $twitter_id
++              ))
++              ->execute();
++
++        }
+       }
+     }
+   }
+
